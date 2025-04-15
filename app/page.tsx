@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { PlusIcon, GripVerticalIcon, EyeIcon, SaveIcon } from 'lucide-react';
+import { EyeIcon, SaveIcon } from 'lucide-react';
 import { Question, QuestionType } from '@/types';
 import { SurveyBuilder } from '@/components/SurveyBuilder';
 import { SurveyPreview } from '@/components/SurveyPreview';
@@ -59,7 +59,7 @@ export default function EvaluationsPage() {
   };
 
   return (
-    <div className="container mx-auto py-8">
+    <div className="container py-8">
       <div className="flex justify-between items-center mb-8">
         <Input
           value={title}
@@ -86,7 +86,7 @@ export default function EvaluationsPage() {
             <TabsContent value="edit" className="space-y-4">
               <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
                 <SortableContext items={questions} strategy={verticalListSortingStrategy}>
-                  <ScrollArea className="h-[calc(100vh-300px)]">
+                  <ScrollArea className="h-[calc(100vh-200px)]">
                     <div className="space-y-4 p-1">
                       {questions.map((question) => (
                         <SurveyBuilder
