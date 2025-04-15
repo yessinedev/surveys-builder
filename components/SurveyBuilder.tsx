@@ -30,7 +30,7 @@ export function SurveyBuilder({ question, onUpdate, onRemove }: QuestionBuilderP
   };
 
   const addOption = () => {
-    if (question.type === 'choice' && question.options) {
+    if (question.type === 'single_choice' && question.options) {
       onUpdate({
         options: [...question.options, `Option ${question.options.length + 1}`]
       });
@@ -38,7 +38,7 @@ export function SurveyBuilder({ question, onUpdate, onRemove }: QuestionBuilderP
   };
 
   const updateOption = (index: number, value: string) => {
-    if (question.type === 'choice' && question.options) {
+    if (question.type === 'single_choice' && question.options) {
       const newOptions = [...question.options];
       newOptions[index] = value;
       onUpdate({ options: newOptions });
@@ -46,7 +46,7 @@ export function SurveyBuilder({ question, onUpdate, onRemove }: QuestionBuilderP
   };
 
   const removeOption = (index: number) => {
-    if (question.type === 'choice' && question.options && question.options.length > 1) {
+    if (question.type === 'single_choice' && question.options && question.options.length > 1) {
       onUpdate({
         options: question.options.filter((_, i) => i !== index)
       });
@@ -84,7 +84,7 @@ export function SurveyBuilder({ question, onUpdate, onRemove }: QuestionBuilderP
         </div>
       </CardHeader>
       <CardContent>
-        {question.type === 'choice' && question.options && (
+        {question.type === 'single_choice' && question.options && (
           <div className="space-y-2">
             {question.options.map((option, index) => (
               <div key={index} className="flex items-center gap-2">

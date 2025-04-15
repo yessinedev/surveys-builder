@@ -24,7 +24,7 @@ export function SurveyPreview({ question }: QuestionPreviewProps) {
             <Input placeholder="Votre réponse..." />
           )}
 
-          {question.type === 'choice' && question.options && (
+          {question.type === 'single_choice' && question.options && (
             <RadioGroup>
               {question.options.map((option, index) => (
                 <div key={index} className="flex items-center space-x-2">
